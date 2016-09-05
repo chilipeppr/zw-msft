@@ -57,7 +57,7 @@
     background-color: black;
     color: white;
     height: 48px;
-    padding: 0 10px;
+    
     /* border: 1px solid red; */
     line-height: 48px;
     text-align: center;
@@ -70,6 +70,12 @@
 }
 .msft-signin:hover {
     background-color: #004C89;
+}
+.msft-signin .not-signed-in {
+    padding: 0 10px;
+}
+.msft-signin .signed-in {
+    padding: 2px 2px 2px 10px;
 }
 /* Override to make Z menu narrower when in Microsoft mode */
 .zw-msft .zw-z-button {
@@ -566,7 +572,7 @@ cprequire_test(["inline:com-zipwhip-widget-msft"], function(myWidget) {
     );
 
     // init my widget
-    myWidget.init({mode:'marchex'});
+    myWidget.init({mode:'in-cloud9'});
     // $('#' + myWidget.id).css('margin', '20px');
     $('title').html(myWidget.name);
 
@@ -637,6 +643,8 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
                 // we want to swap in our waffle and sign in menu
                 this.swapInHeaderItems();
             }
+            
+            this.setupSignIn();
 
             /*
             if (options && 'mode' in options && options.mode == 'marchex') {
@@ -657,6 +665,78 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
 
             console.log("I am done being initted.");
         },
+        setupSignIn: function() {
+            
+            // See if this page was loaded from Microsoft's callback after the
+            // signin is complete. We can detect this by looking in the URL
+            // for something like:
+            // ?code=AQABAAAAAADRNYRQ3dhRSrm-4K-adpCJhimALnWff6P3B5QAtA2pnTytzyubCDRMRiIvz6OIEzSGbqmdBaUDOyh-cZ0UD2pbbX7d9inD3ZZ7l_94ntbGObj0Cu0Q9mY3x1W4I_S1Tj_Lk2rfV80O_vcpMyCKyoJFoto4ZZH781FQh8WXs42YwZQnsHiNDyt2mXsbMbA_Zz24owTYIFcY5NDZAJCyx5NWJpkbDhgdS52kAAngughhRwoo2tainPgZ5vgvXjMhKmpVtxWi9L8EK7upgyzJ7z_ZFcrLy_nizpBl6K877nwHjiQvyz8NbHAQT60h5JggcufdVC5sRANL3BNjD7SX8Keb_8ijE45i3tGE63nwOUb10ilC-Agz6KzTiFyib1HfZERSy7KuSa1z1U7B5eFYbcJNi5RsyC4hgxwi48RwMh8GnsZ_M-6JJ81UCYeAhDUN28OLuMkYMPlssEAdpwM8m7MGK3KDlI9uA1bS7aHxTc0nFRLmXYJbdNSnam59OAfAe2l2G_O-yoEHONq6BHp_Q4v5EXHljMSb4iY6owiUYkLRwN_pfTBMcQnM7PkSHS-OWAJRwmQY7iL6cBmUIa40AkPFkQAFIlfMgc4mqHH_g0WzGbEnB6uRR1bizMgC9naiFU6lj73FTOoDq4j-cEtRC0TzIAA&session_state=6c45c8e5-c8db-471a-a84e-e0e470e5a926
+            var uri = decodeURIComponent(window.location.search.substring(1));
+            // console.log("yo uri:", uri);
+            if (uri.match(/code=.*&session_state=/)) {
+                console.log("this looks like a callback after Microsoft sign in. uri:", uri);
+                var code = this.getUrlParam('code');
+                var session_state = this.getUrlParam('session_state');
+                this.getTokenFromCode(code, session_state, function(data) {
+                    if (data.error) {
+                        console.error("Got error retrieving token from code.", data);
+                    } else {
+                        // we now have token, that's great
+                        console.log("we have a token. data:", data);
+                    }
+                })
+            }
+            
+            // See if we have a token in localStorage from a previous login
+            var prevToken = localStorage.getItem('token');
+            if (prevToken) {
+                var token = JSON.parse(prevToken);
+                console.log("Looks like we have a token from another login. prevToken:", token);
+            
+                // See if token is expired
+                var dateNow = new Date();
+                var dateExpires = new Date(token.token.expiresOn);
+                var diffMs = (dateExpires - dateNow); // milliseconds between now & Christmas
+                if (diffMs <= 0) {
+                    console.log("Token is expired. Need to refresh. expiresOn:", dateExpires, "now:", dateNow);
+                } else {
+                    var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+                    console.log("Token seems valid. expiresOn:", dateExpires, "diffMins:", diffMins);
+                }
+            }
+            
+            // Otherwise just show Sign In link
+            $('.msft-signin').click(this.onSignInClick.bind(this));
+        },
+        showLoggedInUser: function(token) {
+            // If we have a legit token, we can show the logged in user
+            
+        },
+        onSignInClick: function(evt) {
+            console.log("Sign In clicked");
+            
+            // get the auth url from the backend
+            $.getJSON( "authurl", function( data ) {
+                console.log("got authUrl:", data.authurl);
+                if ('authurl' in data && data.authurl) {
+                    window.location = data.authurl;
+                } else {
+                    alert("Not able to retrieve Microsoft Sign In URL");
+                }
+            });
+        },
+        getTokenFromCode: function(code, session_state, callback) {
+            // get the auth url from the backend
+            var url = "gettokenfromcode?code=" + code + "&session_state=" + session_state;
+            $.getJSON(url, function( data ) {
+                console.log("got result from gettokenfromcode. data:", data);
+                
+                // store this token in localstorage
+                localStorage.setItem('token', JSON.stringify(data));
+                
+                callback(data);
+            });
+        },
         swapInHeaderItems: function() {
             $('#com-zipwhip-widget-msft').addClass('hidden');
             // let the menubar know it is in Microsoft add-on mode by adding a class
@@ -664,6 +744,15 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
             $('#com-zipwhip-widget-msft .msft-signin').detach().prependTo('#zw-menubar-wrapper');
             $('#com-zipwhip-widget-msft .msft-waffle').detach().prependTo('#zw-menubar-wrapper');
             
+        },
+        getUrlParam: function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results==null){
+               return null;
+            }
+            else{
+               return results[1] || 0;
+            }
         },
         loadBootstrapCss: function() {
             $('head').append('<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/boot' + 'strap.min.css" rel="stylesheet" type="text/css">');
@@ -966,7 +1055,7 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
 </head>
 
 <body>
-    <div id="com-zipwhip-widget-msft" class="hidden">
+    <div id="com-zipwhip-widget-msft" class="">
         <div class="panel-body">
             
             <div class="msft-waffle" style="">
@@ -975,7 +1064,12 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
                 margin-top: 14px;
                 ">
             </div>
-            <div class="msft-signin" style="">Sign In</div>
+            <div class="msft-signin" style="">
+                <span class="not-signed-in hidden">Sign In</span>
+                <div class="signed-in">
+                    <img src="msft-doughboy.png" style="width:44px;">
+                </div>
+            </div>
 
         Header
         </div>
