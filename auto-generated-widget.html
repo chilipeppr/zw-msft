@@ -713,6 +713,11 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
         showLoggedInUser: function(token) {
             // If we have a legit token, we can show the logged in user
             
+            // Hide Sign In text
+            $('.msft-signin .not-signed-in').addClass('hidden');
+            
+            // Show logged in icon
+            $('.msft-signin .signed-in').removeClass('hidden');
         },
         onSignInClick: function(evt) {
             console.log("Sign In clicked");
@@ -1067,8 +1072,8 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
                 ">
             </div>
             <div class="msft-signin" style="">
-                <span class="not-signed-in hidden">Sign In</span>
-                <div class="signed-in">
+                <span class="not-signed-in">Sign In</span>
+                <div class="signed-in hidden">
                     <img src="https://preview.c9users.io/chilipeppr/zw-msft/msft-doughboy.png" style="width:44px;">
                 </div>
             </div>
