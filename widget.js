@@ -34,7 +34,7 @@ requirejs.config({
     }
 });
 
-cprequire_test(["inline:com-chilipeppr-widget-claure"], function(myWidget) {
+cprequire_test(["inline:com-zipwhip-widget-msft"], function(myWidget) {
 
     // Test this element. This code is auto-removed by the chilipeppr.load()
     // when using this widget in production. So use the cpquire_test to do things
@@ -74,12 +74,12 @@ cprequire_test(["inline:com-chilipeppr-widget-claure"], function(myWidget) {
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-chilipeppr-widget-claure", ["chilipeppr_ready", /* other dependencies here */ ], function() {
+cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other dependencies here */ ], function() {
     return {
         /**
          * The ID of the widget. You must define this and make it unique.
          */
-        id: "com-chilipeppr-widget-claure", // Make the id the same as the cpdefine id
+        id: "com-zipwhip-widget-msft", // Make the id the same as the cpdefine id
         name: "Widget / claure", // The descriptive name of your widget.
         desc: "This example widget gives you a framework for creating your own widget. Please change this description once you fork this claure and create your own widget. Make sure to run runme.js every time you are done editing your code so you can regenerate your README.md file, regenerate your auto-generated-widget.html, and automatically push your changes to Github.", // A description of what your widget does
         url: "(auto fill by runme.js)",       // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
@@ -134,14 +134,21 @@ cpdefine("inline:com-chilipeppr-widget-claure", ["chilipeppr_ready", /* other de
         init: function(options, callback) {
             console.log("I am being initted. options:", options);
 
+            if (options && 'mode' in options && options.mode == 'in-zipwhip') {
+                // we want to swap in our waffle and sign in menu
+                this.swapInHeaderItems();
+            }
+
+            /*
             if (options && 'mode' in options && options.mode == 'marchex') {
                 this.prefixMsg = "";
             }
             $('#' + this.id + " .prefixMsg").text(this.prefixMsg);
-
+            */
+            
             // this.loadBootstrapCss();
-            this.setupCreditCardSocialSecCodeMonitoring();
-            this.setupAfterHours();
+            // this.setupCreditCardSocialSecCodeMonitoring();
+            // this.setupAfterHours();
             
             // this.setupUiFromLocalStorage();
             // this.btnSetup();
@@ -150,6 +157,11 @@ cpdefine("inline:com-chilipeppr-widget-claure", ["chilipeppr_ready", /* other de
             if (callback) callback();
 
             console.log("I am done being initted.");
+        },
+        swapInHeaderItems: function() {
+            $('#com-zipwhip-widget-msft .msft-signin').detach().prependTo('#zw-menubar-wrapper');
+            $('#com-zipwhip-widget-msft .msft-waffle').detach().prependTo('#zw-menubar-wrapper');
+            
         },
         loadBootstrapCss: function() {
             $('head').append('<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/boot' + 'strap.min.css" rel="stylesheet" type="text/css">');
@@ -170,17 +182,17 @@ cpdefine("inline:com-chilipeppr-widget-claure", ["chilipeppr_ready", /* other de
             
             // test portion
             setTimeout(function() {
-                $('#com-chilipeppr-widget-claure-tab1').append("<div>modifying dom to see if we get event</div>");
+                $('#com-zipwhip-widget-msft-tab1').append("<div>modifying dom to see if we get event</div>");
             }, 1000);
             setTimeout(function() {
-                $('#com-chilipeppr-widget-claure-tab1').append("<p>1234123412341234</p>");
-                $('#com-chilipeppr-widget-claure-tab1').append("<span>1234 1234 1234 4545</span>");
-                $('#com-chilipeppr-widget-claure-tab1').append("<div>1234-1234-1234-9999</div>");
+                $('#com-zipwhip-widget-msft-tab1').append("<p>1234123412341234</p>");
+                $('#com-zipwhip-widget-msft-tab1').append("<span>1234 1234 1234 4545</span>");
+                $('#com-zipwhip-widget-msft-tab1').append("<div>1234-1234-1234-9999</div>");
             }, 2000);
             setTimeout(function() {
-                $('#com-chilipeppr-widget-claure-tab1').append("<div>297-73-0844 is sample ssn</div>");
+                $('#com-zipwhip-widget-msft-tab1').append("<div>297-73-0844 is sample ssn</div>");
                 //3759 876543 21001
-                $('#com-chilipeppr-widget-claure-tab1').append("<div>3759 876543 21001 is sample Amex #</div>");
+                $('#com-zipwhip-widget-msft-tab1').append("<div>3759 876543 21001 is sample Amex #</div>");
             }, 3000);
         },
         onObserver: function(mutations, observer) {

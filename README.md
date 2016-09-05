@@ -1,4 +1,4 @@
-# com-chilipeppr-widget-claure
+# com-zipwhip-widget-msft
 This example widget gives you a framework for creating your own widget. Please change this description once you fork this claure and create your own widget. Make sure to run runme.js every time you are done editing your code so you can regenerate your README.md file, regenerate your auto-generated-widget.html, and automatically push your changes to Github.
 
 ![alt text](screenshot.png "Screenshot")
@@ -11,13 +11,13 @@ not conflict with other ChiliPeppr widgets.
 
 | Item                  | Value           |
 | -------------         | ------------- | 
-| ID                    | com-chilipeppr-widget-claure |
+| ID                    | com-zipwhip-widget-msft |
 | Name                  | Widget / claure |
 | Description           | This example widget gives you a framework for creating your own widget. Please change this description once you fork this claure and create your own widget. Make sure to run runme.js every time you are done editing your code so you can regenerate your README.md file, regenerate your auto-generated-widget.html, and automatically push your changes to Github. |
-| chilipeppr.load() URL | http://raw.githubusercontent.com/chilipeppr/claure/master/auto-generated-widget.html |
-| Edit URL              | http://ide.c9.io/chilipeppr/claure |
-| Github URL            | http://github.com/chilipeppr/claure |
-| Test URL              | https://preview.c9users.io/chilipeppr/claure/widget.html |
+| chilipeppr.load() URL | http://raw.githubusercontent.com/chilipeppr/zw-msft/master/auto-generated-widget.html |
+| Edit URL              | http://ide.c9.io/chilipeppr/zw-msft |
+| Github URL            | http://github.com/chilipeppr/zw-msft |
+| Test URL              | https://preview.c9users.io/chilipeppr/zw-msft/widget.html |
 
 ## Example Code for chilipeppr.load() Statement
 
@@ -29,20 +29,20 @@ back the instance of it.
 
 ```javascript
 // Inject new div to contain widget or use an existing div with an ID
-$("body").append('<' + 'div id="myDivWidgetClaure"><' + '/div>');
+$("body").append('<' + 'div id="myDivComZipwhipWidgetMsft"><' + '/div>');
 
 chilipeppr.load(
-  "#myDivWidgetClaure",
-  "http://raw.githubusercontent.com/chilipeppr/claure/master/auto-generated-widget.html",
+  "#myDivComZipwhipWidgetMsft",
+  "http://raw.githubusercontent.com/chilipeppr/zw-msft/master/auto-generated-widget.html",
   function() {
-    // Callback after widget loaded into #myDivWidgetClaure
+    // Callback after widget loaded into #myDivComZipwhipWidgetMsft
     // Now use require.js to get reference to instantiated widget
     cprequire(
-      ["inline:com-chilipeppr-widget-claure"], // the id you gave your widget
-      function(myObjWidgetClaure) {
+      ["inline:com-zipwhip-widget-msft"], // the id you gave your widget
+      function(myObjComZipwhipWidgetMsft) {
         // Callback that is passed reference to the newly loaded widget
-        console.log("Widget / claure just got loaded.", myObjWidgetClaure);
-        myObjWidgetClaure.init();
+        console.log("Widget / claure just got loaded.", myObjComZipwhipWidgetMsft);
+        myObjComZipwhipWidgetMsft.init();
       }
     );
   }
@@ -64,7 +64,7 @@ To better understand how ChiliPeppr's subscribe() method works see amplify.js's 
           </tr>
       </thead>
       <tbody>
-      <tr valign="top"><td>/com-chilipeppr-widget-claure/onExampleGenerate</td><td>Example: Publish this signal when we go to generate gcode.</td></tr>    
+      <tr valign="top"><td>/com-zipwhip-widget-msft/onExampleGenerate</td><td>Example: Publish this signal when we go to generate gcode.</td></tr>    
       </tbody>
   </table>
 
@@ -132,12 +132,12 @@ The table below shows, in order, the methods and properties inside the widget/el
           </tr>
       </thead>
       <tbody>
-      <tr valign="top"><td>id</td><td>string</td><td>"com-chilipeppr-widget-claure"<br><br>The ID of the widget. You must define this and make it unique.</td></tr><tr valign="top"><td>name</td><td>string</td><td>"Widget / claure"</td></tr><tr valign="top"><td>desc</td><td>string</td><td>"This example widget gives you a framework for creating your own widget. Please change this description once you fork this claure and create your own widget. Make sure to run runme.js every time you are done editing your code so you can regenerate your README.md file, regenerate your auto-generated-widget.html, and automatically push your changes to Github."</td></tr><tr valign="top"><td>url</td><td>string</td><td>"http://raw.githubusercontent.com/chilipeppr/claure/master/auto-generated-widget.html"</td></tr><tr valign="top"><td>fiddleurl</td><td>string</td><td>"http://ide.c9.io/chilipeppr/claure"</td></tr><tr valign="top"><td>githuburl</td><td>string</td><td>"http://github.com/chilipeppr/claure"</td></tr><tr valign="top"><td>testurl</td><td>string</td><td>"http://claure-chilipeppr.c9users.io/widget.html"</td></tr><tr valign="top"><td>publish</td><td>object</td><td>Please see docs above.<br><br>Define the publish signals that this widget/element owns or defines so that
+      <tr valign="top"><td>id</td><td>string</td><td>"com-zipwhip-widget-msft"<br><br>The ID of the widget. You must define this and make it unique.</td></tr><tr valign="top"><td>name</td><td>string</td><td>"Widget / claure"</td></tr><tr valign="top"><td>desc</td><td>string</td><td>"This example widget gives you a framework for creating your own widget. Please change this description once you fork this claure and create your own widget. Make sure to run runme.js every time you are done editing your code so you can regenerate your README.md file, regenerate your auto-generated-widget.html, and automatically push your changes to Github."</td></tr><tr valign="top"><td>url</td><td>string</td><td>"http://raw.githubusercontent.com/chilipeppr/zw-msft/master/auto-generated-widget.html"</td></tr><tr valign="top"><td>fiddleurl</td><td>string</td><td>"http://ide.c9.io/chilipeppr/zw-msft"</td></tr><tr valign="top"><td>githuburl</td><td>string</td><td>"http://github.com/chilipeppr/zw-msft"</td></tr><tr valign="top"><td>testurl</td><td>string</td><td>"http://zw-msft-chilipeppr.c9users.io/widget.html"</td></tr><tr valign="top"><td>publish</td><td>object</td><td>Please see docs above.<br><br>Define the publish signals that this widget/element owns or defines so that
 other widgets know how to subscribe to them and what they do.</td></tr><tr valign="top"><td>subscribe</td><td>object</td><td>Please see docs above.<br><br>Define the subscribe signals that this widget/element owns or defines so that
 other widgets know how to subscribe to them and what they do.</td></tr><tr valign="top"><td>foreignPublish</td><td>object</td><td>Please see docs above.<br><br>Document the foreign publish signals, i.e. signals owned by other widgets
 or elements, that this widget/element publishes to.</td></tr><tr valign="top"><td>foreignSubscribe</td><td>object</td><td>Please see docs above.<br><br>Document the foreign subscribe signals, i.e. signals owned by other widgets
 or elements, that this widget/element subscribes to.</td></tr><tr valign="top"><td>prefixMsg</td><td>string</td><td>"SprintFreeMsg: "</td></tr><tr valign="top"><td>init</td><td>function</td><td>function (options, callback) <br><br>All widgets should have an init method. It should be run by the
-instantiating code like a workspace or a different widget.</td></tr><tr valign="top"><td>loadBootstrapCss</td><td>function</td><td>function () </td></tr><tr valign="top"><td>observer</td><td>object</td><td></td></tr><tr valign="top"><td>setupCreditCardSocialSecCodeMonitoring</td><td>function</td><td>function () </td></tr><tr valign="top"><td>onObserver</td><td>function</td><td>function (mutations, observer) </td></tr><tr valign="top"><td>composeBoxEl</td><td>object</td><td></td></tr><tr valign="top"><td>onComposeBox</td><td>function</td><td>function (el) </td></tr><tr valign="top"><td>isAfterHoursSetup</td><td>boolean</td><td></td></tr><tr valign="top"><td>setupAfterHours</td><td>function</td><td>function () </td></tr><tr valign="top"><td>isAfterHours</td><td>function</td><td>function (event) </td></tr><tr valign="top"><td>detectCreditCardOnNode</td><td>function</td><td>function (node) </td></tr><tr valign="top"><td>isCreditCardRevealDialogSetup</td><td>boolean</td><td></td></tr><tr valign="top"><td>onShowCreditCardReveal</td><td>function</td><td>function (event) </td></tr><tr valign="top"><td>onCreditCardRevealVerifyPassword</td><td>function</td><td>function (event) </td></tr>
+instantiating code like a workspace or a different widget.</td></tr><tr valign="top"><td>swapInHeaderItems</td><td>function</td><td>function () </td></tr><tr valign="top"><td>loadBootstrapCss</td><td>function</td><td>function () </td></tr><tr valign="top"><td>observer</td><td>object</td><td></td></tr><tr valign="top"><td>setupCreditCardSocialSecCodeMonitoring</td><td>function</td><td>function () </td></tr><tr valign="top"><td>onObserver</td><td>function</td><td>function (mutations, observer) </td></tr><tr valign="top"><td>composeBoxEl</td><td>object</td><td></td></tr><tr valign="top"><td>onComposeBox</td><td>function</td><td>function (el) </td></tr><tr valign="top"><td>isAfterHoursSetup</td><td>boolean</td><td></td></tr><tr valign="top"><td>setupAfterHours</td><td>function</td><td>function () </td></tr><tr valign="top"><td>isAfterHours</td><td>function</td><td>function (event) </td></tr><tr valign="top"><td>detectCreditCardOnNode</td><td>function</td><td>function (node) </td></tr><tr valign="top"><td>isCreditCardRevealDialogSetup</td><td>boolean</td><td></td></tr><tr valign="top"><td>onShowCreditCardReveal</td><td>function</td><td>function (event) </td></tr><tr valign="top"><td>onCreditCardRevealVerifyPassword</td><td>function</td><td>function (event) </td></tr>
       </tbody>
   </table>
 

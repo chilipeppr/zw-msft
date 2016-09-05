@@ -1,12 +1,13 @@
-/* CSS for ChiliPeppr Widget */
+/* CSS for Zipwhip Widget */
 
-#com-chilipeppr-widget-claure {
+#com-zipwhip-widget-msft {
     position: absolute;
-    /*top:0px;*/
-    /*left:0px;*/
-    bottom: 20px;
-    right: 20px;
-    width: 300px;
+    top:0px;
+    left:0px;
+    /*bottom: 20px;*/
+    right: 0px;
+    /*width: 300px;*/
+    /*height:100px;*/
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.42857143;
     box-sizing: border-box;
@@ -14,16 +15,54 @@
     /*height: 100%;*/
     background-color: transparent;
     /*z-index: -1;*/
+    border:1px solid red;
 }
 
-#com-chilipeppr-widget-claure .panel-wrapper {
+.msft-waffle {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: #0078D7;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color .467s cubic-bezier(.1,.9,.2,1) 34ms;
+    transition-property: background-color;
+    transition-duration: 0.467s;
+    transition-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1);
+    transition-delay: 34ms;
+}
+.msft-waffle:hover {
+    background-color: #004C89;
+}
+.msft-signin {
+    float: right;
+    background-color: black;
+    color: white;
+    height: 48px;
+    padding: 0 10px;
+    /* border: 1px solid red; */
+    line-height: 48px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color .467s cubic-bezier(.1,.9,.2,1) 34ms;
+    transition-property: background-color;
+    transition-duration: 0.467s;
+    transition-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1);
+    transition-delay: 34ms;
+}
+.msft-signin:hover {
+    background-color: #004C89;
+}
+
+#com-zipwhip-widget-msft .panel-wrapper {
     /*position: absolute;*/
     /*bottom:20px;*/
     /*right:20px;*/
     /*width:300px;*/
 }
 
-#com-chilipeppr-widget-claure button {
+#com-zipwhip-widget-msft button {
     font: inherit;
     margin: 0;
     overflow: visible;
@@ -31,15 +70,15 @@
     -webkit-appearance: button;
 }
 
-#com-chilipeppr-widget-claure:before {
+#com-zipwhip-widget-msft:before {
     box-sizing: border-box;
 }
 
-#com-chilipeppr-widget-claure:after {
+#com-zipwhip-widget-msft:after {
     box-sizing: border-box;
 }
 
-#com-chilipeppr-widget-claure .nav-tabs>li>a {
+#com-zipwhip-widget-msft .nav-tabs>li>a {
     padding: 2px 6px;
 }
 
@@ -89,7 +128,7 @@
     float: right!important;
 }
 
-#com-chilipeppr-widget-claure .btn {
+#com-zipwhip-widget-msft .btn {
     display: inline-block;
     margin-bottom: 0;
     font-weight: 400;
@@ -109,7 +148,7 @@
     user-select: none;
 }
 
-#com-chilipeppr-widget-claure .btn-default {
+#com-zipwhip-widget-msft .btn-default {
     color: #333 !important;
     background-color: #fff !important;
     border-color: #ccc !important;
@@ -130,53 +169,53 @@
     float: left;
 }
 
-#com-chilipeppr-widget-claure .btn-group,
-#com-chilipeppr-widget-claure .btn-group-vertical {
+#com-zipwhip-widget-msft .btn-group,
+#com-zipwhip-widget-msft .btn-group-vertical {
     position: relative;
     display: inline-block;
     vertical-align: middle;
 }
 
-#com-chilipeppr-widget-claure .btn-group>.btn:first-child {
+#com-zipwhip-widget-msft .btn-group>.btn:first-child {
     margin-left: 0;
 }
 
-#com-chilipeppr-widget-claure .btn-group>.btn,
-#com-chilipeppr-widget-claure .btn-group-vertical>.btn {
+#com-zipwhip-widget-msft .btn-group>.btn,
+#com-zipwhip-widget-msft .btn-group-vertical>.btn {
     position: relative;
     float: left;
 }
 
-#com-chilipeppr-widget-claure .btn-xs,
-#com-chilipeppr-widget-claure .btn-group-xs>.btn {
+#com-zipwhip-widget-msft .btn-xs,
+#com-zipwhip-widget-msft .btn-group-xs>.btn {
     padding: 1px 5px;
     font-size: 12px;
     line-height: 1.5;
     border-radius: 3px;
 }
 
-#com-chilipeppr-widget-claure .btn:hover,
-#com-chilipeppr-widget-claure .btn:focus {
+#com-zipwhip-widget-msft .btn:hover,
+#com-zipwhip-widget-msft .btn:focus {
     color: #333;
     text-decoration: none;
 }
 
-#com-chilipeppr-widget-claure .btn-group>.btn:hover,
-#com-chilipeppr-widget-claure .btn-group-vertical>.btn:hover,
-#com-chilipeppr-widget-claure .btn-group>.btn:focus,
-#com-chilipeppr-widget-claure .btn-group-vertical>.btn:focus,
-#com-chilipeppr-widget-claure .btn-group>.btn:active,
-#com-chilipeppr-widget-claure .btn-group-vertical>.btn:active,
-#com-chilipeppr-widget-claure .btn-group>.btn.active,
-#com-chilipeppr-widget-claure .btn-group-vertical>.btn.active {
+#com-zipwhip-widget-msft .btn-group>.btn:hover,
+#com-zipwhip-widget-msft .btn-group-vertical>.btn:hover,
+#com-zipwhip-widget-msft .btn-group>.btn:focus,
+#com-zipwhip-widget-msft .btn-group-vertical>.btn:focus,
+#com-zipwhip-widget-msft .btn-group>.btn:active,
+#com-zipwhip-widget-msft .btn-group-vertical>.btn:active,
+#com-zipwhip-widget-msft .btn-group>.btn.active,
+#com-zipwhip-widget-msft .btn-group-vertical>.btn.active {
     z-index: 2;
 }
 
-#com-chilipeppr-widget-claure .btn-default:hover,
-#com-chilipeppr-widget-claure .btn-default:focus,
-#com-chilipeppr-widget-claure .btn-default:active,
-#com-chilipeppr-widget-claure .btn-default.active,
-#com-chilipeppr-widget-claure .open .dropdown-toggle.btn-default {
+#com-zipwhip-widget-msft .btn-default:hover,
+#com-zipwhip-widget-msft .btn-default:focus,
+#com-zipwhip-widget-msft .btn-default:active,
+#com-zipwhip-widget-msft .btn-default.active,
+#com-zipwhip-widget-msft .open .dropdown-toggle.btn-default {
     color: #333 !important;
     background-color: #ebebeb !important;
     border-color: #adadad !important;
@@ -235,7 +274,7 @@
     padding: 10px 15px;
 }
 
-#com-chilipeppr-widget-claure .tab-content>.active {
+#com-zipwhip-widget-msft .tab-content>.active {
     display: block;
     font-size: 14px;
 }
@@ -365,7 +404,7 @@
 .glyphicon-lock:before {
     content: "\e033";
 }
-#com-chilipeppr-widget-claure .form-control {
+#com-zipwhip-widget-msft .form-control {
     margin: 0;
     display: block;
     /*width: 100%;*/
@@ -383,48 +422,48 @@
     -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
-#com-chilipeppr-widget-claure .input-group {
+#com-zipwhip-widget-msft .input-group {
     position: relative;
     display: table;
     border-collapse: separate;
 }
-#com-chilipeppr-widget-claure .input-group .form-control {
+#com-zipwhip-widget-msft .input-group .form-control {
     position: relative;
     z-index: 2;
     float: left;
     width: 100%;
     margin-bottom: 0;
 }
-#com-chilipeppr-widget-claure .input-group .form-control:first-child {
+#com-zipwhip-widget-msft .input-group .form-control:first-child {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
 }
-#com-chilipeppr-widget-claure .input-group-addon, #com-chilipeppr-widget-claure .input-group-btn, #com-chilipeppr-widget-claure .input-group .form-control {
+#com-zipwhip-widget-msft .input-group-addon, #com-zipwhip-widget-msft .input-group-btn, #com-zipwhip-widget-msft .input-group .form-control {
     display: table-cell;
 }
-#com-chilipeppr-widget-claure .input-group-btn:last-child>.btn, #com-chilipeppr-widget-claure .input-group-btn:last-child>.btn-group {
+#com-zipwhip-widget-msft .input-group-btn:last-child>.btn, #com-zipwhip-widget-msft .input-group-btn:last-child>.btn-group {
     margin-left: -1px;
 }
-#com-chilipeppr-widget-claure .input-group-btn>.btn:hover, #com-chilipeppr-widget-claure .input-group-btn>.btn:focus, #com-chilipeppr-widget-claure .input-group-btn>.btn:active {
+#com-zipwhip-widget-msft .input-group-btn>.btn:hover, #com-zipwhip-widget-msft .input-group-btn>.btn:focus, #com-zipwhip-widget-msft .input-group-btn>.btn:active {
     z-index: 2;
 }
-#com-chilipeppr-widget-claure .input-group .form-control:last-child, #com-chilipeppr-widget-claure .input-group-addon:last-child, #com-chilipeppr-widget-claure .input-group-btn:last-child>.btn, #com-chilipeppr-widget-claure .input-group-btn:last-child>.btn-group>.btn, #com-chilipeppr-widget-claure .input-group-btn:last-child>.dropdown-toggle, #com-chilipeppr-widget-claure .input-group-btn:first-child>.btn:not(:first-child), #com-chilipeppr-widget-claure .input-group-btn:first-child>.btn-group:not(:first-child)>.btn {
+#com-zipwhip-widget-msft .input-group .form-control:last-child, #com-zipwhip-widget-msft .input-group-addon:last-child, #com-zipwhip-widget-msft .input-group-btn:last-child>.btn, #com-zipwhip-widget-msft .input-group-btn:last-child>.btn-group>.btn, #com-zipwhip-widget-msft .input-group-btn:last-child>.dropdown-toggle, #com-zipwhip-widget-msft .input-group-btn:first-child>.btn:not(:first-child), #com-zipwhip-widget-msft .input-group-btn:first-child>.btn-group:not(:first-child)>.btn {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
 }
-#com-chilipeppr-widget-claure .input-group-btn>.btn {
+#com-zipwhip-widget-msft .input-group-btn>.btn {
     position: relative;
 }
-#com-chilipeppr-widget-claure .input-group-btn {
+#com-zipwhip-widget-msft .input-group-btn {
     position: relative;
     font-size: 0;
     white-space: nowrap;
 }
-#com-chilipeppr-widget-claure .input-group-addon, #com-chilipeppr-widget-claure .input-group-btn {
+#com-zipwhip-widget-msft .input-group-addon, #com-zipwhip-widget-msft .input-group-btn {
     width: 1%;
     white-space: nowrap;
     vertical-align: middle;
 }
-#com-chilipeppr-widget-claure .input-group-addon, #com-chilipeppr-widget-claure .input-group-btn, #com-chilipeppr-widget-claure .input-group .form-control {
+#com-zipwhip-widget-msft .input-group-addon, #com-zipwhip-widget-msft .input-group-btn, #com-zipwhip-widget-msft .input-group .form-control {
     display: table-cell;
 }

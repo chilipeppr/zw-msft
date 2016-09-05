@@ -15,15 +15,16 @@
     <script type='text/javascript' src="//i2dcui.appspot.com/js/require.js"></script>
 
     <style type='text/css'>
-/* CSS for ChiliPeppr Widget */
+/* CSS for Zipwhip Widget */
 
-#com-chilipeppr-widget-claure {
+#com-zipwhip-widget-msft {
     position: absolute;
-    /*top:0px;*/
-    /*left:0px;*/
-    bottom: 20px;
-    right: 20px;
-    width: 300px;
+    top:0px;
+    left:0px;
+    /*bottom: 20px;*/
+    right: 0px;
+    /*width: 300px;*/
+    /*height:100px;*/
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.42857143;
     box-sizing: border-box;
@@ -31,16 +32,54 @@
     /*height: 100%;*/
     background-color: transparent;
     /*z-index: -1;*/
+    border:1px solid red;
 }
 
-#com-chilipeppr-widget-claure .panel-wrapper {
+.msft-waffle {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: #0078D7;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color .467s cubic-bezier(.1,.9,.2,1) 34ms;
+    transition-property: background-color;
+    transition-duration: 0.467s;
+    transition-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1);
+    transition-delay: 34ms;
+}
+.msft-waffle:hover {
+    background-color: #004C89;
+}
+.msft-signin {
+    float: right;
+    background-color: black;
+    color: white;
+    height: 48px;
+    padding: 0 10px;
+    /* border: 1px solid red; */
+    line-height: 48px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color .467s cubic-bezier(.1,.9,.2,1) 34ms;
+    transition-property: background-color;
+    transition-duration: 0.467s;
+    transition-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1);
+    transition-delay: 34ms;
+}
+.msft-signin:hover {
+    background-color: #004C89;
+}
+
+#com-zipwhip-widget-msft .panel-wrapper {
     /*position: absolute;*/
     /*bottom:20px;*/
     /*right:20px;*/
     /*width:300px;*/
 }
 
-#com-chilipeppr-widget-claure button {
+#com-zipwhip-widget-msft button {
     font: inherit;
     margin: 0;
     overflow: visible;
@@ -48,15 +87,15 @@
     -webkit-appearance: button;
 }
 
-#com-chilipeppr-widget-claure:before {
+#com-zipwhip-widget-msft:before {
     box-sizing: border-box;
 }
 
-#com-chilipeppr-widget-claure:after {
+#com-zipwhip-widget-msft:after {
     box-sizing: border-box;
 }
 
-#com-chilipeppr-widget-claure .nav-tabs>li>a {
+#com-zipwhip-widget-msft .nav-tabs>li>a {
     padding: 2px 6px;
 }
 
@@ -106,7 +145,7 @@
     float: right!important;
 }
 
-#com-chilipeppr-widget-claure .btn {
+#com-zipwhip-widget-msft .btn {
     display: inline-block;
     margin-bottom: 0;
     font-weight: 400;
@@ -126,7 +165,7 @@
     user-select: none;
 }
 
-#com-chilipeppr-widget-claure .btn-default {
+#com-zipwhip-widget-msft .btn-default {
     color: #333 !important;
     background-color: #fff !important;
     border-color: #ccc !important;
@@ -147,53 +186,53 @@
     float: left;
 }
 
-#com-chilipeppr-widget-claure .btn-group,
-#com-chilipeppr-widget-claure .btn-group-vertical {
+#com-zipwhip-widget-msft .btn-group,
+#com-zipwhip-widget-msft .btn-group-vertical {
     position: relative;
     display: inline-block;
     vertical-align: middle;
 }
 
-#com-chilipeppr-widget-claure .btn-group>.btn:first-child {
+#com-zipwhip-widget-msft .btn-group>.btn:first-child {
     margin-left: 0;
 }
 
-#com-chilipeppr-widget-claure .btn-group>.btn,
-#com-chilipeppr-widget-claure .btn-group-vertical>.btn {
+#com-zipwhip-widget-msft .btn-group>.btn,
+#com-zipwhip-widget-msft .btn-group-vertical>.btn {
     position: relative;
     float: left;
 }
 
-#com-chilipeppr-widget-claure .btn-xs,
-#com-chilipeppr-widget-claure .btn-group-xs>.btn {
+#com-zipwhip-widget-msft .btn-xs,
+#com-zipwhip-widget-msft .btn-group-xs>.btn {
     padding: 1px 5px;
     font-size: 12px;
     line-height: 1.5;
     border-radius: 3px;
 }
 
-#com-chilipeppr-widget-claure .btn:hover,
-#com-chilipeppr-widget-claure .btn:focus {
+#com-zipwhip-widget-msft .btn:hover,
+#com-zipwhip-widget-msft .btn:focus {
     color: #333;
     text-decoration: none;
 }
 
-#com-chilipeppr-widget-claure .btn-group>.btn:hover,
-#com-chilipeppr-widget-claure .btn-group-vertical>.btn:hover,
-#com-chilipeppr-widget-claure .btn-group>.btn:focus,
-#com-chilipeppr-widget-claure .btn-group-vertical>.btn:focus,
-#com-chilipeppr-widget-claure .btn-group>.btn:active,
-#com-chilipeppr-widget-claure .btn-group-vertical>.btn:active,
-#com-chilipeppr-widget-claure .btn-group>.btn.active,
-#com-chilipeppr-widget-claure .btn-group-vertical>.btn.active {
+#com-zipwhip-widget-msft .btn-group>.btn:hover,
+#com-zipwhip-widget-msft .btn-group-vertical>.btn:hover,
+#com-zipwhip-widget-msft .btn-group>.btn:focus,
+#com-zipwhip-widget-msft .btn-group-vertical>.btn:focus,
+#com-zipwhip-widget-msft .btn-group>.btn:active,
+#com-zipwhip-widget-msft .btn-group-vertical>.btn:active,
+#com-zipwhip-widget-msft .btn-group>.btn.active,
+#com-zipwhip-widget-msft .btn-group-vertical>.btn.active {
     z-index: 2;
 }
 
-#com-chilipeppr-widget-claure .btn-default:hover,
-#com-chilipeppr-widget-claure .btn-default:focus,
-#com-chilipeppr-widget-claure .btn-default:active,
-#com-chilipeppr-widget-claure .btn-default.active,
-#com-chilipeppr-widget-claure .open .dropdown-toggle.btn-default {
+#com-zipwhip-widget-msft .btn-default:hover,
+#com-zipwhip-widget-msft .btn-default:focus,
+#com-zipwhip-widget-msft .btn-default:active,
+#com-zipwhip-widget-msft .btn-default.active,
+#com-zipwhip-widget-msft .open .dropdown-toggle.btn-default {
     color: #333 !important;
     background-color: #ebebeb !important;
     border-color: #adadad !important;
@@ -252,7 +291,7 @@
     padding: 10px 15px;
 }
 
-#com-chilipeppr-widget-claure .tab-content>.active {
+#com-zipwhip-widget-msft .tab-content>.active {
     display: block;
     font-size: 14px;
 }
@@ -382,7 +421,7 @@
 .glyphicon-lock:before {
     content: "\e033";
 }
-#com-chilipeppr-widget-claure .form-control {
+#com-zipwhip-widget-msft .form-control {
     margin: 0;
     display: block;
     /*width: 100%;*/
@@ -400,51 +439,52 @@
     -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
-#com-chilipeppr-widget-claure .input-group {
+#com-zipwhip-widget-msft .input-group {
     position: relative;
     display: table;
     border-collapse: separate;
 }
-#com-chilipeppr-widget-claure .input-group .form-control {
+#com-zipwhip-widget-msft .input-group .form-control {
     position: relative;
     z-index: 2;
     float: left;
     width: 100%;
     margin-bottom: 0;
 }
-#com-chilipeppr-widget-claure .input-group .form-control:first-child {
+#com-zipwhip-widget-msft .input-group .form-control:first-child {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
 }
-#com-chilipeppr-widget-claure .input-group-addon, #com-chilipeppr-widget-claure .input-group-btn, #com-chilipeppr-widget-claure .input-group .form-control {
+#com-zipwhip-widget-msft .input-group-addon, #com-zipwhip-widget-msft .input-group-btn, #com-zipwhip-widget-msft .input-group .form-control {
     display: table-cell;
 }
-#com-chilipeppr-widget-claure .input-group-btn:last-child>.btn, #com-chilipeppr-widget-claure .input-group-btn:last-child>.btn-group {
+#com-zipwhip-widget-msft .input-group-btn:last-child>.btn, #com-zipwhip-widget-msft .input-group-btn:last-child>.btn-group {
     margin-left: -1px;
 }
-#com-chilipeppr-widget-claure .input-group-btn>.btn:hover, #com-chilipeppr-widget-claure .input-group-btn>.btn:focus, #com-chilipeppr-widget-claure .input-group-btn>.btn:active {
+#com-zipwhip-widget-msft .input-group-btn>.btn:hover, #com-zipwhip-widget-msft .input-group-btn>.btn:focus, #com-zipwhip-widget-msft .input-group-btn>.btn:active {
     z-index: 2;
 }
-#com-chilipeppr-widget-claure .input-group .form-control:last-child, #com-chilipeppr-widget-claure .input-group-addon:last-child, #com-chilipeppr-widget-claure .input-group-btn:last-child>.btn, #com-chilipeppr-widget-claure .input-group-btn:last-child>.btn-group>.btn, #com-chilipeppr-widget-claure .input-group-btn:last-child>.dropdown-toggle, #com-chilipeppr-widget-claure .input-group-btn:first-child>.btn:not(:first-child), #com-chilipeppr-widget-claure .input-group-btn:first-child>.btn-group:not(:first-child)>.btn {
+#com-zipwhip-widget-msft .input-group .form-control:last-child, #com-zipwhip-widget-msft .input-group-addon:last-child, #com-zipwhip-widget-msft .input-group-btn:last-child>.btn, #com-zipwhip-widget-msft .input-group-btn:last-child>.btn-group>.btn, #com-zipwhip-widget-msft .input-group-btn:last-child>.dropdown-toggle, #com-zipwhip-widget-msft .input-group-btn:first-child>.btn:not(:first-child), #com-zipwhip-widget-msft .input-group-btn:first-child>.btn-group:not(:first-child)>.btn {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
 }
-#com-chilipeppr-widget-claure .input-group-btn>.btn {
+#com-zipwhip-widget-msft .input-group-btn>.btn {
     position: relative;
 }
-#com-chilipeppr-widget-claure .input-group-btn {
+#com-zipwhip-widget-msft .input-group-btn {
     position: relative;
     font-size: 0;
     white-space: nowrap;
 }
-#com-chilipeppr-widget-claure .input-group-addon, #com-chilipeppr-widget-claure .input-group-btn {
+#com-zipwhip-widget-msft .input-group-addon, #com-zipwhip-widget-msft .input-group-btn {
     width: 1%;
     white-space: nowrap;
     vertical-align: middle;
 }
-#com-chilipeppr-widget-claure .input-group-addon, #com-chilipeppr-widget-claure .input-group-btn, #com-chilipeppr-widget-claure .input-group .form-control {
+#com-zipwhip-widget-msft .input-group-addon, #com-zipwhip-widget-msft .input-group-btn, #com-zipwhip-widget-msft .input-group .form-control {
     display: table-cell;
 }
+
     </style>
 
     <script type='text/javascript'>
@@ -485,7 +525,7 @@ requirejs.config({
     }
 });
 
-cprequire_test(["inline:com-chilipeppr-widget-claure"], function(myWidget) {
+cprequire_test(["inline:com-zipwhip-widget-msft"], function(myWidget) {
 
     // Test this element. This code is auto-removed by the chilipeppr.load()
     // when using this widget in production. So use the cpquire_test to do things
@@ -525,18 +565,18 @@ cprequire_test(["inline:com-chilipeppr-widget-claure"], function(myWidget) {
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-chilipeppr-widget-claure", ["chilipeppr_ready", /* other dependencies here */ ], function() {
+cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other dependencies here */ ], function() {
     return {
         /**
          * The ID of the widget. You must define this and make it unique.
          */
-        id: "com-chilipeppr-widget-claure", // Make the id the same as the cpdefine id
+        id: "com-zipwhip-widget-msft", // Make the id the same as the cpdefine id
         name: "Widget / claure", // The descriptive name of your widget.
         desc: "This example widget gives you a framework for creating your own widget. Please change this description once you fork this claure and create your own widget. Make sure to run runme.js every time you are done editing your code so you can regenerate your README.md file, regenerate your auto-generated-widget.html, and automatically push your changes to Github.", // A description of what your widget does
-        url: "http://raw.githubusercontent.com/chilipeppr/claure/master/auto-generated-widget.html",       // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
-        fiddleurl: "http://ide.c9.io/chilipeppr/claure", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
-        githuburl: "http://github.com/chilipeppr/claure", // The backing github repo
-        testurl: "http://claure-chilipeppr.c9users.io/widget.html",   // The standalone working widget so can view it working by itself
+        url: "http://raw.githubusercontent.com/chilipeppr/zw-msft/master/auto-generated-widget.html",       // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
+        fiddleurl: "http://ide.c9.io/chilipeppr/zw-msft", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
+        githuburl: "http://github.com/chilipeppr/zw-msft", // The backing github repo
+        testurl: "http://zw-msft-chilipeppr.c9users.io/widget.html",   // The standalone working widget so can view it working by itself
         /**
          * Define pubsub signals below. These are basically ChiliPeppr's event system.
          * ChiliPeppr uses amplify.js's pubsub system so please refer to docs at
@@ -585,14 +625,21 @@ cpdefine("inline:com-chilipeppr-widget-claure", ["chilipeppr_ready", /* other de
         init: function(options, callback) {
             console.log("I am being initted. options:", options);
 
+            if (options && 'mode' in options && options.mode == 'in-zipwhip') {
+                // we want to swap in our waffle and sign in menu
+                this.swapInHeaderItems();
+            }
+
+            /*
             if (options && 'mode' in options && options.mode == 'marchex') {
                 this.prefixMsg = "";
             }
             $('#' + this.id + " .prefixMsg").text(this.prefixMsg);
-
+            */
+            
             // this.loadBootstrapCss();
-            this.setupCreditCardSocialSecCodeMonitoring();
-            this.setupAfterHours();
+            // this.setupCreditCardSocialSecCodeMonitoring();
+            // this.setupAfterHours();
             
             // this.setupUiFromLocalStorage();
             // this.btnSetup();
@@ -601,6 +648,11 @@ cpdefine("inline:com-chilipeppr-widget-claure", ["chilipeppr_ready", /* other de
             if (callback) callback();
 
             console.log("I am done being initted.");
+        },
+        swapInHeaderItems: function() {
+            $('#com-zipwhip-widget-msft .msft-signin').detach().prependTo('#zw-menubar-wrapper');
+            $('#com-zipwhip-widget-msft .msft-waffle').detach().prependTo('#zw-menubar-wrapper');
+            
         },
         loadBootstrapCss: function() {
             $('head').append('<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/boot' + 'strap.min.css" rel="stylesheet" type="text/css">');
@@ -621,17 +673,17 @@ cpdefine("inline:com-chilipeppr-widget-claure", ["chilipeppr_ready", /* other de
             
             // test portion
             setTimeout(function() {
-                $('#com-chilipeppr-widget-claure-tab1').append("<div>modifying dom to see if we get event</div>");
+                $('#com-zipwhip-widget-msft-tab1').append("<div>modifying dom to see if we get event</div>");
             }, 1000);
             setTimeout(function() {
-                $('#com-chilipeppr-widget-claure-tab1').append("<p>1234123412341234</p>");
-                $('#com-chilipeppr-widget-claure-tab1').append("<span>1234 1234 1234 4545</span>");
-                $('#com-chilipeppr-widget-claure-tab1').append("<div>1234-1234-1234-9999</div>");
+                $('#com-zipwhip-widget-msft-tab1').append("<p>1234123412341234</p>");
+                $('#com-zipwhip-widget-msft-tab1').append("<span>1234 1234 1234 4545</span>");
+                $('#com-zipwhip-widget-msft-tab1').append("<div>1234-1234-1234-9999</div>");
             }, 2000);
             setTimeout(function() {
-                $('#com-chilipeppr-widget-claure-tab1').append("<div>297-73-0844 is sample ssn</div>");
+                $('#com-zipwhip-widget-msft-tab1').append("<div>297-73-0844 is sample ssn</div>");
                 //3759 876543 21001
-                $('#com-chilipeppr-widget-claure-tab1').append("<div>3759 876543 21001 is sample Amex #</div>");
+                $('#com-zipwhip-widget-msft-tab1').append("<div>3759 876543 21001 is sample Amex #</div>");
             }, 3000);
         },
         onObserver: function(mutations, observer) {
@@ -903,101 +955,19 @@ cpdefine("inline:com-chilipeppr-widget-claure", ["chilipeppr_ready", /* other de
 </head>
 
 <body>
-    <div id="com-chilipeppr-widget-claure" class="">
-        
-        <div class="template-creditcardreveal hidden">
-            <button class="btn btn-default btn-xs btn-lock" style="padding:2px 2px;">
-                <span class="glyphicon glyphicon-lock" style="font-size:8px;"></span>
-            </button>
-        </div>
-        
-        <div class="creditcardreveal-password hidden" style="border:1px solid #ccc;border-radius:6px;box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 15px 0px;;padding:16px;position:absolute;width:300px;z-index:20;background-color:white;">
-            <button class="btn btn-xs btn-default btn-close" style="position:absolute; right:6px;top:6px; border:0;">X</button>
-            <p>Please type admin password to reveal number.</p>
-            <!--<div class="input-group">-->
-                <input type="password" class="form-control input-password" placeholder="Admin password">
-                <span class="input-group-btn">
-                <button class="btn btn-default btn-reveal" >Reveal</button>
-                </span>
-            <!--</div>-->
-            <p class="creditcardreveal-badpassword" style="color:red;">Bad password.</p>
-            <p class="actual-creditcard well hidden" style="margin:10px 0 0 0;padding:10px;">3333444400001111</p>
-        </div>
-        
-        <div class="panel-wrapper panel panel-default">
+    <div id="com-zipwhip-widget-msft" class="">
+        <div class="panel-body">
             
-            <div class="panel-heading ">
-    
-                <div class="btn-toolbar pull-right hidden" role="toolbar">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-xs btn-default btn-sayhello" data-delay="1000" data-animation="true" data-placement="auto" data-container="body" data-trigger="hover" data-title="Say Hello" data-content="Generate a hello message">Say Hello
-                        </button>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-xs btn-default hidebody"><span class="glyphicon glyphicon-chevron-up"></span>
-                        </button>
-                    </div>
-                    <div class="btn-group">
-                        <div class="dropdown">
-                            <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-right" role="menu"></ul>
-                        </div>
-                    </div>
-                </div> 
-                <span class="panel-title" data-toggle="popover">Settings Widget</span> 
-                <span style="font-size:9px;" class="fb-build">v5</span>
-    
+            <div class="msft-waffle" style="">
+                <img src="https://preview.c9users.io/chilipeppr/zw-msft/msft-waffle-icon.png" style="
+                width: 20px;
+                margin-top: 14px;
+                ">
             </div>
-            <div class="panel-body">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="active"><a href="#com-chilipeppr-widget-claure-tab1" role="tab" data-toggle="tab">Privacy</a>
-                    </li>
-                    <li><a href="#com-chilipeppr-widget-claure-tab2" role="tab" data-toggle="tab">Prefix</a></li>
-                    <li><a href="#com-chilipeppr-widget-claure-tab3" role="tab" data-toggle="tab">Block</a></li>
-                    <li><a href="#com-chilipeppr-widget-claure-tab4" role="tab" data-toggle="tab">After Hrs</a></li>
-                </ul>
-                <!-- Tab panes -->
-    
-                <div class="tab-content">
-        
-                    <!-- Tab 1 -->
-                    <div class="tab-pane active" id="com-chilipeppr-widget-claure-tab1">
-                        <p>All credit card and social security numbers will be hidden. Click the lock icon and type in admin password to reveal.</p>
-                        <!--<div class="">-->
-                        <!--    <button type="button" class="btn btn-xs btn-default btn-helloworld2" style="margin: 4px 0;">Hello World 2</button>-->
-                        <!--</div>-->
-                    </div>
-    
-                    <!-- Tab 2 -->
-                    <div class="tab-pane" id="com-chilipeppr-widget-claure-tab2">
-                        <p><span class="prefixMsg">no prefix: </span>will be prepended to every outbound message.</p>
-                    </div>
-    
-                    <!-- Tab 3 -->
-                    <div class="tab-pane" id="com-chilipeppr-widget-claure-tab3">
-                        <p>Enter a phone number to block here.</p>
-                        <input type="text" class="form-control" placeholder="Phone number">
-                    </div>
-                    
-                    <!-- Tab 4 -->
-                    <div class="tab-pane" id="com-chilipeppr-widget-claure-tab4">
-                        <p>No sending will be allowed outside of 7AM and 8PM local time.</p>
-                        <p>Please email ariemma@zipwhip.com to change these hours.</p>
-                        <input style="float:left;margin-top:4px;" type="checkbox" class="form-control checkbox-afterhoursnosending" xchecked>
-                        <span style="padding-left:10px;">Mimic being after hours.</span>
-                        <p>
-                            <button class="btn btn-default btn-testafterhours" >Test</button>
-                            <div class="result-afterhours hidden" style="padding-left:10px;">...</div>
-                        </p>
-                    </div>
-    
-                </div>
-    
-            </div>
-        </div> <!-- panel-wrapper-->
+            <div class="msft-signin" style="">Sign In</div>
+
+        Header
+        </div>
     </div>
 </body>
-
 </html>
