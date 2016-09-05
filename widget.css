@@ -54,7 +54,10 @@
 .msft-signin:hover {
     background-color: #004C89;
 }
-
+/* Override to make Z menu narrower when in Microsoft mode */
+.zw-msft .zw-z-button {
+    width: 251px;
+}
 #com-zipwhip-widget-msft .panel-wrapper {
     /*position: absolute;*/
     /*bottom:20px;*/

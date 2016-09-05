@@ -160,6 +160,8 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
         },
         swapInHeaderItems: function() {
             $('#com-zipwhip-widget-msft').addClass('hidden');
+            // let the menubar know it is in Microsoft add-on mode by adding a class
+            $('#zw-menubar-wrapper').addClass('zw-msft');
             $('#com-zipwhip-widget-msft .msft-signin').detach().prependTo('#zw-menubar-wrapper');
             $('#com-zipwhip-widget-msft .msft-waffle').detach().prependTo('#zw-menubar-wrapper');
             
