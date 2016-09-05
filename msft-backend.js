@@ -41,7 +41,10 @@ http.createServer(function(req, res) {
             authurl: authUrl
         }
         res.writeHead(200, {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'zipwhip.com',
+            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+            "Access-Control-Allow-Headers": "X-Requested-With"
         });
         res.end(JSON.stringify(json));
 
@@ -67,7 +70,10 @@ http.createServer(function(req, res) {
         } else {
             var json = {error:true, msg:"Did not supply the code or session_state query parameters so cannot get token from Microsoft Graph API without those."};
             res.writeHead(200, {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'zipwhip.com',
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+                "Access-Control-Allow-Headers": "X-Requested-With"
             });
             res.end(JSON.stringify(json));
         }
@@ -86,7 +92,10 @@ http.createServer(function(req, res) {
                     // json.token = token;
                 }
                 res.writeHead(200, {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': 'zipwhip.com',
+                    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+                    "Access-Control-Allow-Headers": "X-Requested-With"
                 });
                 res.end(JSON.stringify(json));
             });

@@ -220,7 +220,7 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
             console.log("Sign In clicked");
             
             // get the auth url from the backend
-            $.getJSON( "https://preview.c9users.io/chilipeppr/zw-msft/authurl", function( data ) {
+            $.getJSON( "https://zw-msft-chilipeppr.c9users.io/authurl", function( data ) {
                 console.log("got authUrl:", data.authurl);
                 if ('authurl' in data && data.authurl) {
                     window.location = data.authurl;
@@ -231,7 +231,7 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
         },
         getTokenFromCode: function(code, session_state, callback) {
             // get the auth url from the backend
-            var url = "https://preview.c9users.io/chilipeppr/zw-msft/gettokenfromcode?code=" + code + "&session_state=" + session_state;
+            var url = "https://zw-msft-chilipeppr.c9users.io/gettokenfromcode?code=" + code + "&session_state=" + session_state;
             $.getJSON(url, function( data ) {
                 console.log("got result from gettokenfromcode. data:", data);
                 
