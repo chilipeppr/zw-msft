@@ -198,6 +198,8 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
                     var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
                     console.log("Token seems valid. expiresOn:", dateExpires, "diffMins:", diffMins);
                 }
+            } else {
+                console.log("There is no previous token in localStorage.");
             }
             
             // Otherwise just show Sign In link
