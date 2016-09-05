@@ -12,7 +12,7 @@
     }
     
     function doit() {
-        console.log("insede doit method");
+        console.log("inside doit method");
         
         // Inject new div to contain widget or use an existing div with an ID
         $("body").append('<' + 'div id="myDivComZipwhipWidgetMsft"><' + '/div>');
@@ -28,7 +28,7 @@
               function(myObjComZipwhipWidgetMsft) {
                 // Callback that is passed reference to the newly loaded widget
                 console.log("Widget / Microsoft Graph API for Zipwhip just got loaded.", myObjComZipwhipWidgetMsft);
-                myObjComZipwhipWidgetMsft.init();
+                myObjComZipwhipWidgetMsft.init({mode:'in-zipwhip'});
               }
             );
           }
