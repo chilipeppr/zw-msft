@@ -13,6 +13,27 @@
     
     function doit() {
         console.log("insede doit method");
+        
+        // Inject new div to contain widget or use an existing div with an ID
+        $("body").append('<' + 'div id="myDivComZipwhipWidgetMsft"><' + '/div>');
+        
+        chilipeppr.load(
+          "#myDivComZipwhipWidgetMsft",
+          "https://preview.c9users.io/chilipeppr/zw-msft/auto-generated-widget.html",
+          function() {
+            // Callback after widget loaded into #myDivComZipwhipWidgetMsft
+            // Now use require.js to get reference to instantiated widget
+            cprequire(
+              ["inline:com-zipwhip-widget-msft"], // the id you gave your widget
+              function(myObjComZipwhipWidgetMsft) {
+                // Callback that is passed reference to the newly loaded widget
+                console.log("Widget / Microsoft Graph API for Zipwhip just got loaded.", myObjComZipwhipWidgetMsft);
+                myObjComZipwhipWidgetMsft.init();
+              }
+            );
+          }
+        );
+        
         // var dashEl = $('<div id="zw-dashboard-global-instantiation"></div>');
         // $('body').append(dashEl);
         // return;
