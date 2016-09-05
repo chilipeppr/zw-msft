@@ -159,6 +159,7 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
             console.log("I am done being initted.");
         },
         swapInHeaderItems: function() {
+            $('#com-zipwhip-widget-msft').addClass('hidden');
             $('#com-zipwhip-widget-msft .msft-signin').detach().prependTo('#zw-menubar-wrapper');
             $('#com-zipwhip-widget-msft .msft-waffle').detach().prependTo('#zw-menubar-wrapper');
             
