@@ -590,13 +590,14 @@ button.close {
     margin-left: 5px;
     margin-bottom: 0;
 }
-.modal-backdrop.in {
-    opacity: .5;
-    filter: alpha(opacity=50);
-}
+
 .modal-backdrop.fade {
     opacity: 0;
     filter: alpha(opacity=0);
+}
+.modal-backdrop.in {
+    opacity: .5;
+    filter: alpha(opacity=50);
 }
 .modal-backdrop {
     position: fixed;
