@@ -27,6 +27,7 @@ requirejs.config({
         // Example of how to define the key (you make up the key) and the URL
         // Make sure you DO NOT put the .js at the end of the URL
         // SmoothieCharts: '//smoothiecharts.org/smoothie',
+        Bootstrap: '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min'
     },
     shim: {
         // See require.js docs for how to define dependencies that
@@ -68,13 +69,15 @@ cprequire_test(["inline:com-zipwhip-widget-msft"], function(myWidget) {
 
     // init my widget
     myWidget.init({mode:'in-cloud9'});
-    // $('#' + myWidget.id).css('margin', '20px');
+    //$('#' + myWidget.id).css('margin', '20px');
+    $('#com-zipwhip-widget-msft').removeClass('hidden');
     $('title').html(myWidget.name);
+    
 
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other dependencies here */ ], function() {
+cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", 'Bootstrap' /* other dependencies here */ ], function() {
     return {
         /**
          * The ID of the widget. You must define this and make it unique.
@@ -188,17 +191,22 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
                 var token = JSON.parse(prevToken);
                 console.log("Looks like we have a token from another login. prevToken:", token);
             
-                // See if token is expired
-                var dateNow = new Date();
-                var dateExpires = new Date(token.token.expiresOn);
-                var diffMs = (dateExpires - dateNow); // milliseconds between now & Christmas
-                if (diffMs <= 0) {
-                    console.log("Token is expired. Need to refresh. expiresOn:", dateExpires, "now:", dateNow);
+                // See if prev token was error
+                if (token.error) {
+                    console.log("Last token had error, so pretend as if does not exist.");
                 } else {
-                    var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
-                    console.log("Token seems valid. expiresOn:", dateExpires, "diffMins:", diffMins);
-                
-                    this.showLoggedInUser(token);
+                    // See if token is expired
+                    var dateNow = new Date();
+                    var dateExpires = new Date(token.token.expiresOn);
+                    var diffMs = (dateExpires - dateNow); // milliseconds between now & Christmas
+                    if (diffMs <= 0) {
+                        console.log("Token is expired. Need to refresh. expiresOn:", dateExpires, "now:", dateNow);
+                    } else {
+                        var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+                        console.log("Token seems valid. expiresOn:", dateExpires, "diffMins:", diffMins);
+                    
+                        this.showLoggedInUser(token);
+                    }
                 }
             } else {
                 console.log("There is no previous token in localStorage.");
@@ -219,15 +227,26 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", /* other depende
         onSignInClick: function(evt) {
             console.log("Sign In clicked");
             
-            // get the auth url from the backend
-            $.getJSON( "https://zw-msft-chilipeppr.c9users.io/authurl", function( data ) {
-                console.log("got authUrl:", data.authurl);
-                if ('authurl' in data && data.authurl) {
-                    window.location = data.authurl;
-                } else {
-                    alert("Not able to retrieve Microsoft Sign In URL");
-                }
-            });
+            // See if we are signed in or not
+            if ($('.msft-signin .signed-in').hasClass('hidden')) {
+                console.log("not logged in");
+                // not logged in
+                // get the auth url from the backend and then redirect to it
+                $.getJSON( "https://zw-msft-chilipeppr.c9users.io/authurl", function( data ) {
+                    console.log("got authUrl:", data.authurl);
+                    if ('authurl' in data && data.authurl) {
+                        window.location = data.authurl;
+                    } else {
+                        alert("Not able to retrieve Microsoft Sign In URL");
+                    }
+                });
+            } else {
+                // is logged in
+                console.log("logged in. showing modal.");
+                // show modal
+                $('.zw-msft-modal').modal({show:true});
+            }
+            
         },
         getTokenFromCode: function(code, session_state, callback) {
             // get the auth url from the backend

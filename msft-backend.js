@@ -23,6 +23,12 @@ var mimeTypes = {
 http.createServer(function(req, res) {
 
     var fullUrl = req.protocol + '://' + req.headers.host + req.url;
+    var corsUrl;
+    if (req.headers.referer) {
+        var referUrl = url.parse(req.headers.referer);
+        corsUrl = referUrl.protocol + "//" + referUrl.hostname;
+        console.log("corsUrl:", corsUrl); //, "referrer:", req.headers.referer);
+    }
     // console.log("full url:", req);
     var url_parts = url.parse(req.url, true);
     var query = url_parts.query;
@@ -36,13 +42,13 @@ http.createServer(function(req, res) {
     }
     else if (uri == "/authurl") {
 
-        var authUrl = authHelper.getAuthUrl(fullUrl);
+        var authUrl = authHelper.getAuthUrl(corsUrl);
         var json = {
             authurl: authUrl
         }
         res.writeHead(200, {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'zipwhip.com',
+            'Access-Control-Allow-Origin': corsUrl,
             'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
             "Access-Control-Allow-Headers": "X-Requested-With"
         });
@@ -54,7 +60,7 @@ http.createServer(function(req, res) {
         // check that we got expected params
         if (query.code && query.session_state) {
             
-            var authUrl = authHelper.getTokenFromCode(fullUrl, query.code, function(err, token) {
+            var authUrl = authHelper.getTokenFromCode(corsUrl, query.code, function(err, token) {
                 var json = {error:err, token:token, session_state:query.session_state, orig_code:query.code};
                 if (err) {
                     json.error = true;
@@ -63,7 +69,10 @@ http.createServer(function(req, res) {
                     json.token = token;
                 }
                 res.writeHead(200, {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': corsUrl,
+                    'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+                    "Access-Control-Allow-Headers": "X-Requested-With"
                 });
                 res.end(JSON.stringify(json));
             });
@@ -71,7 +80,7 @@ http.createServer(function(req, res) {
             var json = {error:true, msg:"Did not supply the code or session_state query parameters so cannot get token from Microsoft Graph API without those."};
             res.writeHead(200, {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'zipwhip.com',
+                'Access-Control-Allow-Origin': corsUrl,
                 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
                 "Access-Control-Allow-Headers": "X-Requested-With"
             });
@@ -83,7 +92,7 @@ http.createServer(function(req, res) {
         // check that we got expected params
         if (query.refreshToken) {
             
-            var authUrl = authHelper.getTokenFromRefreshToken(fullUrl, query.refreshToken, function(err, refreshResponse) {
+            var authUrl = authHelper.getTokenFromRefreshToken(corsUrl, query.refreshToken, function(err, refreshResponse) {
                 var json = {error:err, refreshResponse:refreshResponse, orig_refreshToken:query.refreshToken};
                 if (err) {
                     json.error = true;
@@ -93,7 +102,7 @@ http.createServer(function(req, res) {
                 }
                 res.writeHead(200, {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'zipwhip.com',
+                    'Access-Control-Allow-Origin': corsUrl,
                     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
                     "Access-Control-Allow-Headers": "X-Requested-With"
                 });
@@ -102,7 +111,10 @@ http.createServer(function(req, res) {
         } else {
             var json = {error:true, msg:"Did not supply the original refreshToken parameter so cannot get new token from Microsoft Graph API without that."};
             res.writeHead(200, {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': corsUrl,
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+                "Access-Control-Allow-Headers": "X-Requested-With"
             });
             res.end(JSON.stringify(json));
         }
