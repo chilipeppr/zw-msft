@@ -137,10 +137,14 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", 'Bootstrap' /* o
         init: function(options, callback) {
             console.log("I am being initted. options:", options);
 
-            if (options && 'mode' in options && options.mode == 'in-zipwhip') {
-                // we want to swap in our waffle and sign in menu
-                this.swapInHeaderItems();
-            }
+            if (options && 'mode' in options) {
+                if (options.mode == 'in-zipwhip') {
+                    // we want to swap in our waffle and sign in menu
+                    this.swapInHeaderItems();
+                } else if (options.mode == 'in-cloud9') {
+                    this.loadBootstrapCss();
+                }
+            } 
             
             this.setupSignIn();
 
@@ -171,6 +175,7 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", 'Bootstrap' /* o
             // ?code=AQABAAAAAADRNYRQ3dhRSrm-4K-adpCJhimALnWff6P3B5QAtA2pnTytzyubCDRMRiIvz6OIEzSGbqmdBaUDOyh-cZ0UD2pbbX7d9inD3ZZ7l_94ntbGObj0Cu0Q9mY3x1W4I_S1Tj_Lk2rfV80O_vcpMyCKyoJFoto4ZZH781FQh8WXs42YwZQnsHiNDyt2mXsbMbA_Zz24owTYIFcY5NDZAJCyx5NWJpkbDhgdS52kAAngughhRwoo2tainPgZ5vgvXjMhKmpVtxWi9L8EK7upgyzJ7z_ZFcrLy_nizpBl6K877nwHjiQvyz8NbHAQT60h5JggcufdVC5sRANL3BNjD7SX8Keb_8ijE45i3tGE63nwOUb10ilC-Agz6KzTiFyib1HfZERSy7KuSa1z1U7B5eFYbcJNi5RsyC4hgxwi48RwMh8GnsZ_M-6JJ81UCYeAhDUN28OLuMkYMPlssEAdpwM8m7MGK3KDlI9uA1bS7aHxTc0nFRLmXYJbdNSnam59OAfAe2l2G_O-yoEHONq6BHp_Q4v5EXHljMSb4iY6owiUYkLRwN_pfTBMcQnM7PkSHS-OWAJRwmQY7iL6cBmUIa40AkPFkQAFIlfMgc4mqHH_g0WzGbEnB6uRR1bizMgC9naiFU6lj73FTOoDq4j-cEtRC0TzIAA&session_state=6c45c8e5-c8db-471a-a84e-e0e470e5a926
             var uri = decodeURIComponent(window.location.search.substring(1));
             // console.log("yo uri:", uri);
+            var that = this;
             if (uri.match(/code=.*&session_state=/)) {
                 console.log("this looks like a callback after Microsoft sign in. uri:", uri);
                 var code = this.getUrlParam('code');
@@ -181,7 +186,7 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", 'Bootstrap' /* o
                     } else {
                         // we now have token, that's great
                         console.log("we have a token. data:", data);
-                        this.showLoggedInUser(token);
+                        that.showLoggedInUser(token);
                     }
                 })
             }
@@ -245,9 +250,45 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", 'Bootstrap' /* o
                 // is logged in
                 console.log("logged in. showing modal.");
                 // show modal
-                $('.zw-msft-modal').modal({show:true});
+                this.showMsftModal();
             }
             
+        },
+        getSignedInUser: function() {
+            var finalToken;
+            var prevToken = localStorage.getItem('token');
+            if (prevToken) {
+                var token = JSON.parse(prevToken);
+                console.log("Looks like we have a token from another login. prevToken:", token);
+            
+                // See if prev token was error
+                if (token.error) {
+                    console.log("Last token had error, so pretend as if does not exist.");
+                } else {
+                    // See if token is expired
+                    var dateNow = new Date();
+                    var dateExpires = new Date(token.token.expiresOn);
+                    var diffMs = (dateExpires - dateNow); // milliseconds between now & Christmas
+                    if (diffMs <= 0) {
+                        console.log("Token is expired. Need to refresh. expiresOn:", dateExpires, "now:", dateNow);
+                    } else {
+                        var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+                        console.log("Token seems valid. expiresOn:", dateExpires, "diffMins:", diffMins);
+                    
+                        finalToken = token;
+                    }
+                }
+            } else {
+                console.log("There is no previous token in localStorage.");
+            }
+            return finalToken;
+        },
+        showMsftModal: function() {
+            
+            var token = this.getSignedInUser();
+            $('.msft-name').text(token.token.givenName + " " + token.token.familyName);
+            $('.msft-email').text(token.token.userId);
+            $('.zw-msft-modal').modal({show:true});
         },
         getTokenFromCode: function(code, session_state, callback) {
             // get the auth url from the backend

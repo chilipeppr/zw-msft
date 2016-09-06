@@ -60,23 +60,45 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Modal title</h4>
+            <h4 class="modal-title">Office 365 Add-In</h4>
           </div>
           <div class="modal-body">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                <li role="presentation" class="active"><a href="#zw-msft-account" aria-controls="home" role="tab" data-toggle="tab">Account</a></li>
+                <li role="presentation"><a href="#zw-msft-contactsync" aria-controls="profile" role="tab" data-toggle="tab">Contact Sync</a></li>
+                <li role="presentation"><a href="##zw-msft-org" aria-controls="messages" role="tab" data-toggle="tab">Organization</a></li>
+                <li role="presentation"><a href="##zw-msft-settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
                 </ul>
                 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="home">...</div>
-                <div role="tabpanel" class="tab-pane fade" id="profile">...</div>
-                <div role="tabpanel" class="tab-pane fade" id="messages">...</div>
-                <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
+                <div role="tabpanel" class="tab-pane active" id="zw-msft-account" style="padding:20px;">
+                    
+                    <table class="table">
+                        <tr><td>Name</td><td class="msft-name">-</td></tr>
+                        <tr><td>Email</td><td class="msft-email">-</td></tr>
+                        <tr><td>Unlink&nbsp;</td><td><button class="btn btn-default">Sign Out of Office 365</button></td></tr>
+                    </table>
+                    
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="zw-msft-contactsync">
+                    
+                    <div style="padding:20px;">
+                        <p><button class="btn btn-default">
+                            Import Contacts from Office 365
+                        </button></p>
+                        
+                        <div class="progress">
+                          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                            <span class="sr-only">45% Complete</span>
+                          </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="zw-msft-org">...</div>
+                <div role="tabpanel" class="tab-pane fade" id="zw-msft-settings">...</div>
                 </div>
           </div>
           <div class="modal-footer">
