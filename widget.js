@@ -151,7 +151,7 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", 'Bootstrap' /* o
             $('#' + this.id + " .prefixMsg").text(this.prefixMsg);
             */
             
-            // this.loadBootstrapCss();
+            this.loadBootstrapCss();
             // this.setupCreditCardSocialSecCodeMonitoring();
             // this.setupAfterHours();
             
