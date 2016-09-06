@@ -686,6 +686,7 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", 'Bootstrap' /* o
                     } else {
                         // we now have token, that's great
                         console.log("we have a token. data:", data);
+                        this.showLoggedInUser(token);
                     }
                 })
             }
