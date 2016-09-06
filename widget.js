@@ -303,7 +303,13 @@ cpdefine("inline:com-zipwhip-widget-msft", ["chilipeppr_ready", 'Bootstrap' /* o
             });
         },
         swapInHeaderItems: function() {
+            
+            // Tell the body of the zipwhip web app we have added the microsoft widget
+            $('body').addClass('com-zipwhip-widget-msft');
+            
+            // Hide the main widget html cuz don't need it
             $('#com-zipwhip-widget-msft').addClass('hidden');
+            
             // let the menubar know it is in Microsoft add-on mode by adding a class
             $('#zw-menubar-wrapper').addClass('zw-msft');
             $('#com-zipwhip-widget-msft .msft-signin').detach().prependTo('#zw-menubar-wrapper');
